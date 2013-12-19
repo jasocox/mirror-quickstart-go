@@ -117,24 +117,15 @@ limitations under the License.
 
       <form action="/" method="post">
         <input type="hidden" name="operation" value="insertItem">
-        <textarea name="message" class="span4">Hello World!</textarea><br/>
-        <button class="btn btn-block" type="submit">
-          Insert the above message
-        </button>
-      </form>
-
-      <form action="/" method="post">
-        <input type="hidden" name="operation" value="insertItem">
-        <input type="hidden" name="message"
-               value="A solar eclipse of Saturn. Earth is also in this photo. Can you find it?">
         <input type="hidden" name="imageUrl"
                value="/static/images/saturn-eclipse.jpg">
         <input type="hidden" name="contentType" value="image/jpeg">
-
-        <button class="btn btn-block" type="submit">Insert a picture
-          <img class="button-icon" src="/static/images/saturn-eclipse.jpg">
+        <textarea name="message" class="span4">Do 15 jumping jacks!</textarea><br/>
+        <button class="btn btn-block" type="submit">
+          Send achievement text!
         </button>
       </form>
+
       <form action="/" method="post">
         <input type="hidden" name="operation" value="insertItemWithAction">
         <button class="btn btn-block" type="submit">
