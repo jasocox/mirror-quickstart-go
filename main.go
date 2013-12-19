@@ -51,7 +51,6 @@ var operations = map[string]func(*http.Request, *mirror.Service) string{
 	"insertSubscription":     insertSubscription,
 	"deleteSubscription":     deleteSubscription,
 	"insertItem":             insertItem,
-	"insertItemWithAction":   insertItemWithAction,
 	"insertItemAllUsers":     insertItemAllUsers,
 	"insertContact":          insertContact,
 	"deleteContact":          deleteContact,
@@ -190,8 +189,11 @@ func insertItem(r *http.Request, svc *mirror.Service) string {
 	c.Infof("Inserting Timeline Item")
 
 	body := mirror.TimelineItem{
+		Creator:      &mirror.Contact{DisplayName: "Charactr"},
+		MenuItems:    []*mirror.MenuItem{&mirror.MenuItem{Action: "REPLY"}},
 		Notification: &mirror.NotificationConfig{Level: "AUDIO_ONLY"},
 	}
+
 	if r.FormValue("html") == "on" {
 		body.Html = r.FormValue("message")
 	} else {
@@ -217,24 +219,7 @@ func insertItem(r *http.Request, svc *mirror.Service) string {
 	if _, err := svc.Timeline.Insert(&body).Media(media).Do(); err != nil {
 		return fmt.Sprintf("Unable to insert timeline item: %s", err)
 	}
-	return "A timeline item has been inserted."
-}
 
-// insertItemWithAction inserts a Timeline Item that the user can reply to.
-func insertItemWithAction(r *http.Request, svc *mirror.Service) string {
-	c := appengine.NewContext(r)
-	c.Infof("Inserting Timeline Item")
-
-	body := mirror.TimelineItem{
-		Creator:      &mirror.Contact{DisplayName: "Charactr"},
-		Text:         "Tell me what you had for lunch :)",
-		Notification: &mirror.NotificationConfig{Level: "AUDIO_ONLY"},
-		MenuItems:    []*mirror.MenuItem{&mirror.MenuItem{Action: "REPLY"}},
-	}
-
-	if _, err := svc.Timeline.Insert(&body).Do(); err != nil {
-		return fmt.Sprintf("Unable to insert timeline item: %s", err)
-	}
 	return "A timeline item with action has been inserted."
 }
 
