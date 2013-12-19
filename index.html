@@ -17,7 +17,7 @@ limitations under the License.
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glassware Starter Project</title>
+  <title>Charactr Project</title>
   <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet"
         media="screen">
   <link href="/static/bootstrap/css/bootstrap-responsive.min.css"
@@ -28,7 +28,7 @@ limitations under the License.
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">Glassware Starter Project: Go Edition</a>
+      <a class="brand" href="#">Charactr</a>
 
       <div class="nav-collapse collapse">
         <form class="navbar-form pull-right" action="/signout" method="post">
@@ -164,9 +164,9 @@ limitations under the License.
       {{ if .Contact }}
       <form action="/" method="post">
         <input type="hidden" name="operation" value="deleteContact">
-        <input type="hidden" name="id" value="Go Quick Start">
+        <input type="hidden" name="id" value="Charactr">
         <button class="btn btn-block btn-danger" type="submit">
-          Delete Go Quick Start Contact
+          Delete Charactr Contact
         </button>
       </form>
       {{ else }}
@@ -175,9 +175,9 @@ limitations under the License.
         <input type="hidden" name="imageUrl"
                value="/static/images/gopher.png">
         <input type="hidden" name="name"
-               value="Go Quick Start">
+               value="Charactr">
         <button class="btn btn-block btn-success" type="submit">
-          Insert Go Quick Start Contact
+          Insert Charactr Contact
         </button>
       </form>
       {{ end }}

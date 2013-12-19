@@ -88,7 +88,7 @@ func handleLocationsNotification(c appengine.Context, svc *mirror.Service, not *
 	if err != nil {
 		return fmt.Errorf("Unable to retrieve location: %s", err)
 	}
-	text := fmt.Sprintf("Go Quick Start says you are at %f by %f.", l.Latitude, l.Longitude)
+	text := fmt.Sprintf("Charactr says you are at %f by %f.", l.Latitude, l.Longitude)
 	t := &mirror.TimelineItem{
 		Text:         text,
 		Location:     l,
@@ -117,7 +117,7 @@ func handleTimelineNotification(c appengine.Context, svc *mirror.Service, not *m
 		// Update method instead, but we wanted to illustrate the Patch method
 		// here.
 		patch := &mirror.TimelineItem{
-			Text: fmt.Sprintf("Go Quick Start got your photo! %s", t.Text),
+			Text: fmt.Sprintf("Charactr got your photo! %s", t.Text),
 		}
 		_, err = svc.Timeline.Patch(not.ItemId, patch).Do()
 		if err != nil {

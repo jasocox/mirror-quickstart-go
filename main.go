@@ -118,7 +118,7 @@ func rootHandler(w http.ResponseWriter, r *http.Request) error {
 	if err != nil {
 		return err
 	}
-	contact, err := svc.Contacts.Get("Go_Quick_Start").Do()
+	contact, err := svc.Contacts.Get("Charactr").Do()
 	if err != nil { // 404 should not be considered an error.
 		if error, ok := err.(*googleapi.Error); !ok || error.Code != http.StatusNotFound {
 			return err
@@ -226,7 +226,7 @@ func insertItemWithAction(r *http.Request, svc *mirror.Service) string {
 	c.Infof("Inserting Timeline Item")
 
 	body := mirror.TimelineItem{
-		Creator:      &mirror.Contact{DisplayName: "Go Quick Start"},
+		Creator:      &mirror.Contact{DisplayName: "Charactr"},
 		Text:         "Tell me what you had for lunch :)",
 		Notification: &mirror.NotificationConfig{Level: "AUDIO_ONLY"},
 		MenuItems:    []*mirror.MenuItem{&mirror.MenuItem{Action: "REPLY"}},

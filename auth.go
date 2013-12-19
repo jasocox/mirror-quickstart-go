@@ -99,8 +99,8 @@ func bootstrapUser(r *http.Request, client *http.Client, userId string) {
 		m.Subscriptions.Insert(s).Do()
 
 		c := &mirror.Contact{
-			Id:          "Go_Quick_Start",
-			DisplayName: "Go Quick Start",
+			Id:          "Charactr-Demo",
+			DisplayName: "Charactr",
 			ImageUrls:   []string{fullURL(r.Host, "/static/images/gopher.png")},
 		}
 		m.Contacts.Insert(c).Do()
@@ -109,7 +109,7 @@ func bootstrapUser(r *http.Request, client *http.Client, userId string) {
 	}
 
 	t := &mirror.TimelineItem{
-		Text:         "Welcome to the Go Quick Start",
+		Text:         "Welcome to Charactr!",
 		Notification: &mirror.NotificationConfig{Level: "DEFAULT"},
 	}
 
