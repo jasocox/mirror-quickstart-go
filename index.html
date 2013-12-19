@@ -117,12 +117,13 @@ limitations under the License.
 
       <form action="/" method="post">
         <input type="hidden" name="operation" value="insertItem">
-        <input type="hidden" name="imageUrl"
-               value="/static/images/saturn-eclipse.jpg">
-        <input type="hidden" name="contentType" value="image/jpeg">
+        <div style="padding-top: 1.5em; padding-bottom: 0.5em;">
+          Image Url: <input name="imageUrl" value="/static/images/saturn-eclipse.jpg">
+          <input type="hidden" name="contentType" value="image/jpeg">
+        </div>
         <textarea name="message" class="span4">Do 15 jumping jacks!</textarea><br/>
         <button class="btn btn-block" type="submit">
-          Send achievement text!
+          Send achievement!
         </button>
       </form>
 
