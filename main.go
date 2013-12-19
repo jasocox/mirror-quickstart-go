@@ -190,7 +190,9 @@ func insertItem(r *http.Request, svc *mirror.Service) string {
 
 	body := mirror.TimelineItem{
 		Creator:      &mirror.Contact{DisplayName: "Charactr"},
-		MenuItems:    []*mirror.MenuItem{&mirror.MenuItem{Action: "REPLY"}},
+		MenuItems:    []*mirror.MenuItem{&mirror.MenuItem{Action: "TOGGLE_PINNED"},
+                                     &mirror.MenuItem{Action: "READ_ALOUD"},
+                                     &mirror.MenuItem{Action: "DELETE"} },
 		Notification: &mirror.NotificationConfig{Level: "AUDIO_ONLY"},
 	}
 
